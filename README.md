@@ -2,7 +2,7 @@
 
 > 一套**自研、原创**的量化金融项目集合。所有代码独立编写（MIT 许可），仅依赖 numpy/pandas 等基础库，离线可复现、含完整测试。
 
-**8 个项目 · 1125 个测试用例 · 4 层分类**
+**9 个项目 · 1376 个测试用例 · 4 层分类**
 
 ## 分类目录
 
@@ -21,12 +21,13 @@
 | [kairos-factor](https://github.com/Bruce848647703/kairos-factor) · **因子 / Alpha 研究** | 自研因子研究库：IC/RankIC/IR、分层回测、去极值·标准化·中性化、IC 衰减。 | 52 ✅ |
 | [kairos-portfolio](https://github.com/Bruce848647703/kairos-portfolio) · **组合优化 / 风险** | 自研组合优化与风险：均值-方差、风险平价、Ledoit-Wolf 收缩、VaR/CVaR、有效前沿。 | 60 ✅ |
 | [kairos-ml](https://github.com/Bruce848647703/kairos-ml) · **机器学习** | 自研金融机器学习：三重障碍、purged/embargo CV、walk-forward、numpy 自研模型（不依赖 sklearn）。 | 65 ✅ |
+| [kairos-risk](https://github.com/Bruce848647703/kairos-risk) · **风险分析** | 自研风险分析库：VaR/ES、成分风险分解、因子风险模型、回撤、压力测试、EVT 尾部、PSR/DSR。 | 230 ✅ |
 
 ### 策略 · Strategies
 
 | 项目 | 说明 | 测试 |
 |---|---|---|
-| [kairos-strategies](https://github.com/Bruce848647703/kairos-strategies) · **策略研究库** | 多渠道收集策略、原创实现、向量化回测，并固化「策略→回测→样本外验证→结果」的完整 QR 流程（95 策略 / 24 渠道，含 walk-forward OOS·参数敏感性·PSR·bootstrap CI）。 | 662 ✅ |
+| [kairos-strategies](https://github.com/Bruce848647703/kairos-strategies) · **策略研究库** | 多渠道收集策略、原创实现、向量化回测，并固化「策略→回测→样本外验证→结果」的完整 QR 流程（99 策略 / 25 渠道，含 walk-forward OOS·参数敏感性·PSR·bootstrap CI）。 | 683 ✅ |
 
 ### 市场应用 · Markets
 
