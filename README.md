@@ -2,7 +2,7 @@
 
 > 一套**自研、原创**的量化金融项目集合。所有代码独立编写（MIT 许可），仅依赖 numpy/pandas 等基础库，离线可复现、含完整测试。
 
-**9 个项目 · 1376 个测试用例 · 4 层分类**
+**9 个项目 · 1433 个测试用例 · 4 层分类**
 
 ## 分类目录
 
@@ -27,7 +27,7 @@
 
 | 项目 | 说明 | 测试 |
 |---|---|---|
-| [kairos-strategies](https://github.com/Bruce848647703/kairos-strategies) · **策略研究库** | 多渠道收集策略、原创实现、向量化回测，并固化「策略→回测→样本外验证→结果」的完整 QR 流程（99 策略 / 25 渠道，含 walk-forward OOS·参数敏感性·PSR·bootstrap CI）。 | 683 ✅ |
+| [kairos-strategies](https://github.com/Bruce848647703/kairos-strategies) · **策略研究库** | 多渠道收集策略、原创实现、向量化回测，并固化「策略→回测→样本外验证→结果」的完整 QR 流程（106 策略 / 27 渠道，含 walk-forward OOS·参数敏感性·PSR·bootstrap CI）。 | 740 ✅ |
 
 ### 市场应用 · Markets
 
