@@ -55,11 +55,49 @@
 - **端到端集成 Lab**：capstone 流水线，用真实数据把上述各包串成完整研究工作流。
 - **研究结论 Insights**：跨仓库真实数据实验的综合研究报告（结论均可溯源）。
 
-## 典型工作流
+## 架构与工作流
+
+```mermaid
+flowchart LR
+  D[kairos-data<br/>取数/清洗/复权/PIT] --> F[kairos-factor<br/>因子/IC/分层]
+  D --> M[kairos-ml<br/>特征/标签/CV/模型]
+  F --> P[kairos-portfolio<br/>组合优化/风险平价]
+  M --> P
+  P --> B[kairos-backtest<br/>向量化/事件驱动回测]
+  D --> S[kairos-strategies<br/>106策略/锦标赛/验证]
+  B --> R[kairos-risk<br/>VaR/ES/因子/尾部/PSR]
+  S --> R
+  P --> E[kairos-execution<br/>OMS/TWAP/VWAP/TCA]
+  D --> C[kairos-crypto<br/>纸面交易/回放]
+  B --> L[kairos-lab<br/>端到端capstone]
+  F --> L
+  P --> L
+  R --> L
+  E --> L
+  M --> L
+  L --> RS[kairos-research<br/>研究结论集]
+  S --> RS
 ```
-kairos-data(取数/清洗) → kairos-factor(因子) / kairos-ml(信号) →
-kairos-portfolio(组合) → kairos-backtest(回测) / kairos-strategies(策略研究) →
-kairos-execution(执行) ; kairos-crypto(加密市场端到端)
+
+## 真实数据研究亮点（hfq A股/ETF，均诚实呈现，非投资建议）
+
+- **多资产最稳健**：14 只跨资产 ETF 上，全天候 `all_weather` 夏普 **1.52**、最大回撤仅 **5.1%**；风险平价 `risk_parity` 夏普 1.39；均显著优于等权基准（夏普 0.59、回撤 17%）。
+- **策略组合优于单策略**：106 策略锦标赛去相关精选出的精英组合夏普 **0.93**、回撤 **15.2%**，相比等权基准（0.76 / 31.2%）回撤近乎减半。
+- **单因子 alpha 稀薄**：38 只 A 股池中，16 个（因子×预处理×样本）组合按非重叠口径 **无一** |t|≥2；唯一稳健信号是低波动异象（裸因子 rv10 样本外 IC t≈**-5.0**）。
+- **ML 未跑赢单因子**：Ridge/Logistic/GBM 在严格 walk-forward/purged 样本外 **无正向预测力**，反而稀释了低波信号——诚实负结果。
+- **风险画像**：真实组合 94.6% 方差来自单一市场因子；尾部显著肥于正态（Hill ξ≈**0.45**，99.9% POT VaR 约为正态法 1.7 倍）；考虑选组合的多重检验后 DSR 从 PSR 0.98 降至 ~0.34。
+- **数据完整性教训**：腾讯前复权(qfq)对高分红股产生**负价/假收益**（单日 >2000%），已全链切换**后复权(hfq)** 并重生成所有真实结果（等权基准收益由虚高 +1170% 修正为真实 +145%）。
+
+详见 [kairos-research](https://github.com/Bruce848647703/kairos-research)（11 篇结论笔记 + 126 条可溯源发现）。
+
+## 复现
+```bash
+# 任一仓库：
+git clone https://github.com/Bruce848647703/kairos-strategies && cd kairos-strategies
+pip install -e '.[dev,plot]'
+python -m pytest -q                 # 跑测试
+python examples/run_all.py          # 合成数据回测(离线)
+python examples/run_real.py         # 真实A股回测(首次联网抓取hfq数据)
 ```
 
 ## 设计与合规
