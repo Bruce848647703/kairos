@@ -2,7 +2,7 @@
 
 > 一套**自研、原创**的量化金融项目集合。所有代码独立编写（MIT 许可），仅依赖 numpy/pandas 等基础库，离线可复现、含完整测试。
 
-**10 个项目 · 1570 个测试用例 · 4 层分类**
+**10 个项目 · 1607 个测试用例 · 4 层分类**
 
 ## 分类目录
 
@@ -12,7 +12,7 @@
 |---|---|---|
 | [kairos-data](https://github.com/Bruce848647703/kairos-data) · **数据管道 / 行情** | 自研金融数据管道：复权、日历对齐、时点正确性(PIT)、本地存储与清洗；含 A 股个股(38只)与跨资产ETF(9只)真实行情适配器(腾讯/新浪)与已提交真实数据集。 | 75 ✅ |
 | [kairos-backtest](https://github.com/Bruce848647703/kairos-backtest) · **回测框架** | 自研轻量回测框架：向量化 + 事件驱动，防未来函数，含绩效分析与成本模型；含真实 A 股回测示例。 | 27 ✅ |
-| [kairos-execution](https://github.com/Bruce848647703/kairos-execution) · **交易执行 / OMS** | 自研交易执行：OMS 状态机、TWAP/VWAP/Iceberg/IS 算法、延迟·部分成交模拟、TCA。 | 71 ✅ |
+| [kairos-execution](https://github.com/Bruce848647703/kairos-execution) · **交易执行 / OMS** | 自研交易执行：OMS 状态机、TWAP/VWAP/Iceberg/IS 算法、延迟·部分成交模拟、TCA；含真实 A 股 bar 执行 TCA 示例。 | 81 ✅ |
 
 ### 研究 · Research
 
@@ -20,7 +20,7 @@
 |---|---|---|
 | [kairos-factor](https://github.com/Bruce848647703/kairos-factor) · **因子 / Alpha 研究** | 自研因子研究库：IC/RankIC/IR、分层回测、去极值·标准化·中性化、IC 衰减；含真实 A 股因子研究示例。 | 67 ✅ |
 | [kairos-portfolio](https://github.com/Bruce848647703/kairos-portfolio) · **组合优化 / 风险** | 自研组合优化与风险：均值-方差、风险平价、Ledoit-Wolf 收缩、VaR/CVaR、有效前沿；含真实 ETF 组合优化示例。 | 71 ✅ |
-| [kairos-ml](https://github.com/Bruce848647703/kairos-ml) · **机器学习** | 自研金融机器学习：三重障碍、purged/embargo CV、walk-forward、numpy 自研模型（不依赖 sklearn）。 | 65 ✅ |
+| [kairos-ml](https://github.com/Bruce848647703/kairos-ml) · **机器学习** | 自研金融机器学习：三重障碍、purged/embargo CV、walk-forward、numpy 自研模型（不依赖 sklearn）；含真实 A 股 ML 信号研究示例。 | 85 ✅ |
 | [kairos-risk](https://github.com/Bruce848647703/kairos-risk) · **风险分析** | 自研风险分析库：VaR/ES、成分风险分解、因子风险模型、回撤、压力测试、EVT 尾部、PSR/DSR；含真实 A 股组合风险报告示例。 | 267 ✅ |
 
 ### 策略 · Strategies
@@ -33,7 +33,7 @@
 
 | 项目 | 说明 | 测试 |
 |---|---|---|
-| [kairos-crypto](https://github.com/Bruce848647703/kairos-crypto) · **加密货币量化** | 自研加密货币纸面交易框架：交易所无关抽象、纸面撮合、动量/网格/定投策略（纯模拟，无真实下单）。 | 135 ✅ |
+| [kairos-crypto](https://github.com/Bruce848647703/kairos-crypto) · **加密货币量化** | 自研加密货币纸面交易框架：交易所无关抽象、纸面撮合、动量/网格/定投策略（纯模拟，无真实下单）；支持任意历史 OHLCV 回放。 | 142 ✅ |
 
 ### 端到端集成 · Lab
 
