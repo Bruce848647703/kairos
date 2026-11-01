@@ -2,7 +2,7 @@
 
 > 一套**自研、原创**的量化金融项目集合。所有代码独立编写（MIT 许可），仅依赖 numpy/pandas 等基础库，离线可复现、含完整测试，并已接入**真实 A 股/ETF 数据**（后复权 hfq）。
 
-**11 个项目 · 1677 个测试用例 · 6 层分类 · 全部带 GitHub Actions CI**
+**12 个项目 · 1789 个测试用例 · 7 层分类 · 全部带 GitHub Actions CI**
 
 ## 分类目录
 
@@ -35,6 +35,12 @@
 |---|---|---|
 | [kairos-crypto](https://github.com/Bruce848647703/kairos-crypto) · **加密货币量化** | 自研加密货币纸面交易框架：交易所无关抽象、纸面撮合、动量/网格/定投策略（纯模拟，无真实下单）；支持任意历史 OHLCV 回放。 | 142 ✅ |
 
+### 交易终端 · Terminal
+
+| 项目 | 说明 | 测试 |
+|---|---|---|
+| [kairos-terminal](https://github.com/Bruce848647703/kairos-terminal) · **随机过程交易终端** | QMT 式终端，但每个品种的价格过程可插拔（GBM/Heston/SABR/粗糙Bergomi/GARCH/跳跃/区制/VG/历史重采样/自定义）；零依赖 Web 界面（K线·下单·持仓·期权 Delta 对冲），内置定价实验室（BS/二叉树/MC/隐含波动率/模型错配对冲实验）。 | 112 ✅ |
+
 ### 端到端集成 · Lab
 
 | 项目 | 说明 | 测试 |
@@ -52,6 +58,7 @@
 - **研究 Research**：因子/Alpha、组合优化与风险、机器学习 —— 从数据到信号再到组合的研究工具。
 - **策略 Strategies**：多渠道收集策略、原创实现、回测并固化完整 QR 研究记录。
 - **市场应用 Markets**：面向具体市场（加密货币）的端到端应用框架。
+- **交易终端 Terminal**：价格过程可插拔的交易终端与定价实验室 —— 把「世界设定」变成可操作对象。
 - **端到端集成 Lab**：capstone 流水线，用真实数据把上述各包串成完整研究工作流。
 - **研究结论 Insights**：跨仓库真实数据实验的综合研究报告（结论均可溯源）。
 
@@ -69,6 +76,8 @@ flowchart LR
   S --> R
   P --> E[kairos-execution<br/>OMS/TWAP/VWAP/TCA]
   D --> C[kairos-crypto<br/>纸面交易/回放]
+  D --> T[kairos-terminal<br/>可插拔过程/期权对冲]
+  F --> T
   B --> L[kairos-lab<br/>端到端capstone]
   F --> L
   P --> L
@@ -87,6 +96,7 @@ flowchart LR
 - **ML 未跑赢单因子**：Ridge/Logistic/GBM 在严格 walk-forward/purged 样本外 **无正向预测力**，反而稀释了低波信号——诚实负结果。
 - **风险画像**：真实组合 94.6% 方差来自单一市场因子；尾部显著肥于正态（Hill ξ≈**0.45**，99.9% POT VaR 约为正态法 1.7 倍）；考虑选组合的多重检验后 DSR 从 PSR 0.98 降至 ~0.34。
 - **数据完整性教训**：腾讯前复权(qfq)对高分红股产生**负价/假收益**（单日 >2000%），已全链切换**后复权(hfq)** 并重生成所有真实结果（等权基准收益由虚高 +1170% 修正为真实 +145%）。
+- **模型风险可量化**：在 kairos-terminal 里用 Heston 生成真实路径、却用 BS Delta 对冲一年，PnL 均值 **-1.31**、5% 分位 **-6.92**（GBM 自身为 -0.01 / -1.62）—— 定价模型错了，代价会直接落在权益曲线上。
 
 详见 [kairos-research](https://github.com/Bruce848647703/kairos-research)（11 篇结论笔记 + 126 条可溯源发现）。
 
