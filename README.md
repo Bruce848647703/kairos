@@ -2,7 +2,7 @@
 
 > 一套**自研、原创**的量化金融项目集合。所有代码独立编写（MIT 许可），仅依赖 numpy/pandas 等基础库，离线可复现、含完整测试，并已接入**真实 A 股/ETF 数据**（后复权 hfq）。
 
-**12 个项目 · 1790 个测试用例 · 7 层分类 · 全部带 GitHub Actions CI**
+**13 个项目 · 1847 个测试用例 · 8 层分类 · 全部带 GitHub Actions CI**
 
 ## 分类目录
 
@@ -22,6 +22,12 @@
 | [kairos-portfolio](https://github.com/Bruce848647703/kairos-portfolio) · **组合优化 / 风险** | 自研组合优化与风险：均值-方差、风险平价、Ledoit-Wolf 收缩、VaR/CVaR、有效前沿；含真实 ETF 组合优化示例。 | 71 ✅ |
 | [kairos-ml](https://github.com/Bruce848647703/kairos-ml) · **机器学习** | 自研金融机器学习：三重障碍、purged/embargo CV、walk-forward、numpy 自研模型（不依赖 sklearn）；含真实 A 股 ML 信号研究示例。 | 85 ✅ |
 | [kairos-risk](https://github.com/Bruce848647703/kairos-risk) · **风险分析** | 自研风险分析库：VaR/ES、成分风险分解、因子风险模型、回撤、压力测试、EVT 尾部、PSR/DSR；含真实 A 股组合风险报告示例。 | 267 ✅ |
+
+### 衍生品 · Derivatives
+
+| 项目 | 说明 | 测试 |
+|---|---|---|
+| [kairos-vol](https://github.com/Bruce848647703/kairos-vol) · **波动率曲面研究** | 自研期权波动率库：SVI 逐期限校准 / SSVI 全局 3 参数、蝶式与日历无套利检验、Breeden-Litzenberger 密度、Dupire 局部波动率、方差互换与 carry、期权 PnL 归因（Delta/Gamma/Vega/Theta）。零依赖。 | 57 ✅ |
 
 ### 策略 · Strategies
 
@@ -56,6 +62,7 @@
 ## 各层职责
 - **基础设施 Foundation**：数据接入与清洗、回测引擎、交易执行/OMS —— 支撑上层研究的底座。
 - **研究 Research**：因子/Alpha、组合优化与风险、机器学习 —— 从数据到信号再到组合的研究工具。
+- **衍生品 Derivatives**：波动率曲面校准、无套利检验、局部波动率与方差互换 —— 期权定价与波动率交易的研究底座。
 - **策略 Strategies**：多渠道收集策略、原创实现、回测并固化完整 QR 研究记录。
 - **市场应用 Markets**：面向具体市场（加密货币）的端到端应用框架。
 - **交易终端 Terminal**：价格过程可插拔的交易终端与定价实验室 —— 把「世界设定」变成可操作对象。
@@ -76,7 +83,9 @@ flowchart LR
   S --> R
   P --> E[kairos-execution<br/>OMS/TWAP/VWAP/TCA]
   D --> C[kairos-crypto<br/>纸面交易/回放]
+  D --> V[kairos-vol<br/>曲面/局部波动率/方差互换]
   D --> T[kairos-terminal<br/>可插拔过程/期权对冲]
+  V --> T
   F --> T
   B --> L[kairos-lab<br/>端到端capstone]
   F --> L
