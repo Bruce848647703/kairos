@@ -2,7 +2,7 @@
 
 > 一套**自研、原创**的量化金融项目集合。所有代码独立编写（MIT 许可），仅依赖 numpy/pandas 等基础库，离线可复现、含完整测试，并已接入**真实 A 股/ETF 数据**（后复权 hfq）。
 
-**13 个项目 · 1847 个测试用例 · 8 层分类 · 全部带 GitHub Actions CI**
+**14 个项目 · 1888 个测试用例 · 9 层分类 · 全部带 GitHub Actions CI**
 
 ## 分类目录
 
@@ -28,6 +28,12 @@
 | 项目 | 说明 | 测试 |
 |---|---|---|
 | [kairos-vol](https://github.com/Bruce848647703/kairos-vol) · **波动率曲面研究** | 自研期权波动率库：SVI 逐期限校准 / SSVI 全局 3 参数、蝶式与日历无套利检验、Breeden-Litzenberger 密度、Dupire 局部波动率、方差互换与 carry、期权 PnL 归因（Delta/Gamma/Vega/Theta）。零依赖。 | 57 ✅ |
+
+### 利率 · Rates
+
+| 项目 | 说明 | 测试 |
+|---|---|---|
+| [kairos-rates](https://github.com/Bruce848647703/kairos-rates) · **利率与固定收益** | 自研利率库：存款/互换 bootstrap（顺序反解 + Newton 精修，报价精确重定价）、Nelson-Siegel/Svensson、Vasicek/CIR/Hull-White（解析债券价格，HW 精确重定价初始曲线）、债券与利率互换定价、平行 DV01 与关键利率久期。零依赖。 | 41 ✅ |
 
 ### 策略 · Strategies
 
@@ -63,6 +69,7 @@
 - **基础设施 Foundation**：数据接入与清洗、回测引擎、交易执行/OMS —— 支撑上层研究的底座。
 - **研究 Research**：因子/Alpha、组合优化与风险、机器学习 —— 从数据到信号再到组合的研究工具。
 - **衍生品 Derivatives**：波动率曲面校准、无套利检验、局部波动率与方差互换 —— 期权定价与波动率交易的研究底座。
+- **利率 Rates**：曲线 bootstrap、参数化拟合、短期利率模型、债券/互换定价与关键利率久期 —— 固定收益的研究底座。
 - **策略 Strategies**：多渠道收集策略、原创实现、回测并固化完整 QR 研究记录。
 - **市场应用 Markets**：面向具体市场（加密货币）的端到端应用框架。
 - **交易终端 Terminal**：价格过程可插拔的交易终端与定价实验室 —— 把「世界设定」变成可操作对象。
@@ -84,6 +91,7 @@ flowchart LR
   P --> E[kairos-execution<br/>OMS/TWAP/VWAP/TCA]
   D --> C[kairos-crypto<br/>纸面交易/回放]
   D --> V[kairos-vol<br/>曲面/局部波动率/方差互换]
+  D --> Y[kairos-rates<br/>曲线/利率模型/债券互换]
   D --> T[kairos-terminal<br/>可插拔过程/期权对冲]
   V --> T
   F --> T
