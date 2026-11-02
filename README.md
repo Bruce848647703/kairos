@@ -2,7 +2,7 @@
 
 > 一套**自研、原创**的量化金融项目集合。所有代码独立编写（MIT 许可），仅依赖 numpy/pandas 等基础库，离线可复现、含完整测试，并已接入**真实 A 股/ETF 数据**（后复权 hfq）。
 
-**15 个项目 · 1948 个测试用例 · 10 层分类 · 全部带 GitHub Actions CI**
+**16 个项目 · 1972 个测试用例 · 10 层分类 · 全部带 GitHub Actions CI**
 
 ## 分类目录
 
@@ -13,6 +13,7 @@
 | [kairos-data](https://github.com/Bruce848647703/kairos-data) · **数据管道 / 行情** | 自研金融数据管道：复权、日历对齐、时点正确性(PIT)、本地存储与清洗；含 A 股个股(核心38/扩展60只·17行业)与跨资产ETF(14只/6类别)真实行情适配器(腾讯/新浪,后复权hfq)与已提交真实数据集。 | 75 ✅ |
 | [kairos-backtest](https://github.com/Bruce848647703/kairos-backtest) · **回测框架** | 自研轻量回测框架：向量化 + 事件驱动，防未来函数，含绩效分析与成本模型；含真实 A 股回测示例。 | 27 ✅ |
 | [kairos-execution](https://github.com/Bruce848647703/kairos-execution) · **交易执行 / OMS** | 自研交易执行：OMS 状态机、TWAP/VWAP/Iceberg/IS 算法、延迟·部分成交模拟、TCA；含真实 A 股 bar 执行 TCA 示例。 | 81 ✅ |
+| [kairos-clean](https://github.com/Bruce848647703/kairos-clean) · **数据体检 / 清洗** | 量化行情自动体检：空值、重复日期、非正价、OHLC 矛盾、日历缺口、停牌、收益异常、拆股嫌疑、零成交量；向量化实现（100 万行 87ms），输出 0–100 质量分与逐条改动日志。 | 24 ✅ |
 
 ### 研究 · Research
 
@@ -87,7 +88,8 @@
 
 ```mermaid
 flowchart LR
-  D[kairos-data<br/>取数/清洗/复权/PIT] --> F[kairos-factor<br/>因子/IC/分层]
+  Q[kairos-clean<br/>数据体检/清洗] --> D[kairos-data<br/>取数/清洗/复权/PIT]
+  D --> F[kairos-factor<br/>因子/IC/分层]
   D --> M[kairos-ml<br/>特征/标签/CV/模型]
   F --> P[kairos-portfolio<br/>组合优化/风险平价]
   M --> P
