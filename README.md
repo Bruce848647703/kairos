@@ -2,7 +2,7 @@
 
 > 一套**自研、原创**的量化金融项目集合。所有代码独立编写（MIT 许可），仅依赖 numpy/pandas 等基础库，离线可复现、含完整测试，并已接入**真实 A 股/ETF 数据**（后复权 hfq）。
 
-**14 个项目 · 1888 个测试用例 · 9 层分类 · 全部带 GitHub Actions CI**
+**15 个项目 · 1920 个测试用例 · 10 层分类 · 全部带 GitHub Actions CI**
 
 ## 分类目录
 
@@ -41,6 +41,12 @@
 |---|---|---|
 | [kairos-strategies](https://github.com/Bruce848647703/kairos-strategies) · **策略研究库** | 多渠道收集策略、原创实现、向量化回测，固化「策略→回测→样本外验证→锦标赛优选→结果」完整 QR 流程（106 策略 / 27 渠道 + 多资产配置），支持合成、真实 A 股、行业均衡、真实多资产 ETF 回测。 | 809 ✅ |
 
+### 微观结构 · Microstructure
+
+| 项目 | 说明 | 测试 |
+|---|---|---|
+| [kairos-microstructure](https://github.com/Bruce848647703/kairos-microstructure) · **订单簿与最优执行** | 自研微观结构库：限价订单簿（FIFO 队列/穿越撮合/排队位置）、平方根与 Kyle 冲击、Almgren-Chriss 闭式最优执行与有效前沿、执行短缺、Roll 价差/Amihud/微价格等指标。零依赖。 | 32 ✅ |
+
 ### 市场应用 · Markets
 
 | 项目 | 说明 | 测试 |
@@ -71,6 +77,7 @@
 - **衍生品 Derivatives**：波动率曲面校准、无套利检验、局部波动率与方差互换 —— 期权定价与波动率交易的研究底座。
 - **利率 Rates**：曲线 bootstrap、参数化拟合、短期利率模型、债券/互换定价与关键利率久期 —— 固定收益的研究底座。
 - **策略 Strategies**：多渠道收集策略、原创实现、回测并固化完整 QR 研究记录。
+- **微观结构 Microstructure**：订单簿、冲击模型与最优执行 —— 把「交易成本」从假设变成计算。
 - **市场应用 Markets**：面向具体市场（加密货币）的端到端应用框架。
 - **交易终端 Terminal**：价格过程可插拔的交易终端与定价实验室 —— 把「世界设定」变成可操作对象。
 - **端到端集成 Lab**：capstone 流水线，用真实数据把上述各包串成完整研究工作流。
@@ -89,6 +96,7 @@ flowchart LR
   B --> R[kairos-risk<br/>VaR/ES/因子/尾部/PSR]
   S --> R
   P --> E[kairos-execution<br/>OMS/TWAP/VWAP/TCA]
+  E --> MS[kairos-microstructure<br/>订单簿/冲击/最优执行]
   D --> C[kairos-crypto<br/>纸面交易/回放]
   D --> V[kairos-vol<br/>曲面/局部波动率/方差互换]
   D --> Y[kairos-rates<br/>曲线/利率模型/债券互换]
