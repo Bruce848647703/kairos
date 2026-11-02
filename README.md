@@ -2,7 +2,7 @@
 
 > 一套**自研、原创**的量化金融项目集合。所有代码独立编写（MIT 许可），仅依赖 numpy/pandas 等基础库，离线可复现、含完整测试，并已接入**真实 A 股/ETF 数据**（后复权 hfq）。
 
-**15 个项目 · 1929 个测试用例 · 10 层分类 · 全部带 GitHub Actions CI**
+**15 个项目 · 1932 个测试用例 · 10 层分类 · 全部带 GitHub Actions CI**
 
 ## 分类目录
 
@@ -45,7 +45,7 @@
 
 | 项目 | 说明 | 测试 |
 |---|---|---|
-| [kairos-microstructure](https://github.com/Bruce848647703/kairos-microstructure) · **订单簿与最优执行** | 自研微观结构库：限价订单簿（FIFO 队列/穿越撮合/排队位置）、平方根与 Kyle 冲击、Almgren-Chriss 闭式最优执行与有效前沿、执行短缺、Roll 价差/Amihud/微价格等指标。零依赖。 | 37 ✅ |
+| [kairos-microstructure](https://github.com/Bruce848647703/kairos-microstructure) · **订单簿与最优执行** | 自研微观结构库：限价订单簿（FIFO 队列/穿越撮合/排队位置）、平方根与 Kyle 冲击、Almgren-Chriss 闭式最优执行与有效前沿、真实日线校准（OHLC 波动/价差估计）、执行短缺与微观指标。零依赖。 | 39 ✅ |
 
 ### 市场应用 · Markets
 
@@ -63,7 +63,7 @@
 
 | 项目 | 说明 | 测试 |
 |---|---|---|
-| [kairos-lab](https://github.com/Bruce848647703/kairos-lab) · **端到端研究流水线 (Capstone)** | Capstone：用真实 A 股/ETF 数据把 data→factor→portfolio→backtest→risk→execution→ml 七个自研包串成端到端流水线（个股因子组合 / 多资产风险平价 / 执行 TCA）。 | 32 ✅ |
+| [kairos-lab](https://github.com/Bruce848647703/kairos-lab) · **端到端研究流水线 (Capstone)** | Capstone：用真实 A 股/ETF 数据把 data→factor→portfolio→backtest→risk→execution→ml 七个自研包串成端到端流水线（个股因子组合 / 多资产风险平价 / 执行 TCA）。 | 33 ✅ |
 
 ### 研究结论 · Insights
 
