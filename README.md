@@ -2,7 +2,7 @@
 
 > 一套**自研、原创**的量化金融项目集合。所有代码独立编写（MIT 许可），仅依赖 numpy/pandas 等基础库，离线可复现、含完整测试，并已接入**真实 A 股/ETF 数据**（后复权 hfq）。
 
-**15 个项目 · 1942 个测试用例 · 10 层分类 · 全部带 GitHub Actions CI**
+**15 个项目 · 1948 个测试用例 · 10 层分类 · 全部带 GitHub Actions CI**
 
 ## 分类目录
 
@@ -57,13 +57,13 @@
 
 | 项目 | 说明 | 测试 |
 |---|---|---|
-| [kairos-terminal](https://github.com/Bruce848647703/kairos-terminal) · **随机过程交易终端** | QMT 式终端，但每个品种的价格过程可插拔（GBM/Heston/SABR/粗糙Bergomi/GARCH/跳跃/区制/VG/历史重采样/自定义）；零依赖 Web 界面（K线·下单·持仓·期权 Delta 对冲），内置定价实验室（BS/二叉树/MC/隐含波动率/模型错配对冲实验）。 | 123 ✅ |
+| [kairos-terminal](https://github.com/Bruce848647703/kairos-terminal) · **随机过程交易终端** | QMT 式终端，但每个品种的价格过程可插拔（GBM/Heston/SABR/粗糙Bergomi/GARCH/跳跃/区制/VG/历史重采样/自定义）；零依赖 Web 界面（K线·下单·持仓·期权 Delta 对冲），内置定价实验室（BS/二叉树/MC/隐含波动率/模型错配对冲实验）。 | 128 ✅ |
 
 ### 端到端集成 · Lab
 
 | 项目 | 说明 | 测试 |
 |---|---|---|
-| [kairos-lab](https://github.com/Bruce848647703/kairos-lab) · **端到端研究流水线 (Capstone)** | Capstone：用真实 A 股/ETF 数据把 data→factor→portfolio→backtest→risk→execution→ml 七个自研包串成端到端流水线（个股因子组合 / 多资产风险平价 / 执行 TCA）。 | 33 ✅ |
+| [kairos-lab](https://github.com/Bruce848647703/kairos-lab) · **端到端研究流水线 (Capstone)** | Capstone：用真实 A 股/ETF 数据把 data→factor→portfolio→backtest→risk→execution→ml 七个自研包串成端到端流水线（个股因子组合 / 多资产风险平价 / 执行 TCA）。 | 34 ✅ |
 
 ### 研究结论 · Insights
 
