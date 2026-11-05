@@ -2,7 +2,9 @@
 
 > 一套**自研、原创**的量化金融项目集合。所有代码独立编写（MIT 许可），仅依赖 numpy/pandas 等基础库，离线可复现、含完整测试，并已接入**真实 A 股/ETF 数据**（后复权 hfq）。
 
-**16 个项目 · 1972 个测试用例 · 10 层分类 · 全部带 GitHub Actions CI**
+**16 个项目 · 1983 个测试用例 · 10 层分类 · 全部带 GitHub Actions CI**
+
+> 当前维护版本：`kairos-*` 0.1.x（`kairos-terminal` 0.5.x）。各仓库独立发版，变更记录见 [CHANGELOG.md](CHANGELOG.md)。
 
 ## 分类目录
 
@@ -13,7 +15,7 @@
 | [kairos-data](https://github.com/Bruce848647703/kairos-data) · **数据管道 / 行情** | 自研金融数据管道：复权、日历对齐、时点正确性(PIT)、本地存储与清洗；含 A 股个股(核心38/扩展60只·17行业)与跨资产ETF(14只/6类别)真实行情适配器(腾讯/新浪,后复权hfq)与已提交真实数据集。 | 75 ✅ |
 | [kairos-backtest](https://github.com/Bruce848647703/kairos-backtest) · **回测框架** | 自研轻量回测框架：向量化 + 事件驱动，防未来函数，含绩效分析与成本模型；含真实 A 股回测示例。 | 27 ✅ |
 | [kairos-execution](https://github.com/Bruce848647703/kairos-execution) · **交易执行 / OMS** | 自研交易执行：OMS 状态机、TWAP/VWAP/Iceberg/IS 算法、延迟·部分成交模拟、TCA；含真实 A 股 bar 执行 TCA 示例。 | 81 ✅ |
-| [kairos-clean](https://github.com/Bruce848647703/kairos-clean) · **数据体检 / 清洗** | 量化行情自动体检：空值、重复日期、非正价、OHLC 矛盾、日历缺口、停牌、收益异常、拆股嫌疑、零成交量；向量化实现（100 万行 87ms），输出 0–100 质量分与逐条改动日志。 | 24 ✅ |
+| [kairos-clean](https://github.com/Bruce848647703/kairos-clean) · **数据体检 / 清洗** | 量化行情自动体检：空值、重复日期、非正价、OHLC 矛盾、日历缺口、停牌、收益异常、拆股嫌疑、零成交量；向量化实现（100 万行 87ms），输出 0–100 质量分与逐条改动日志。 | 27 ✅ |
 
 ### 研究 · Research
 
@@ -28,13 +30,13 @@
 
 | 项目 | 说明 | 测试 |
 |---|---|---|
-| [kairos-vol](https://github.com/Bruce848647703/kairos-vol) · **波动率曲面研究** | 自研期权波动率库：SVI 逐期限校准 / SSVI 全局 3 参数、蝶式与日历无套利检验、Breeden-Litzenberger 密度、Dupire 局部波动率、方差互换与 carry、期权 PnL 归因（Delta/Gamma/Vega/Theta）。零依赖。 | 57 ✅ |
+| [kairos-vol](https://github.com/Bruce848647703/kairos-vol) · **波动率曲面研究** | 自研期权波动率库：SVI 逐期限校准 / SSVI 全局 3 参数、蝶式与日历无套利检验、Breeden-Litzenberger 密度、Dupire 局部波动率、方差互换与 carry、期权 PnL 归因（Delta/Gamma/Vega/Theta）。零依赖。 | 58 ✅ |
 
 ### 利率 · Rates
 
 | 项目 | 说明 | 测试 |
 |---|---|---|
-| [kairos-rates](https://github.com/Bruce848647703/kairos-rates) · **利率与固定收益** | 自研利率库：存款/互换 bootstrap（顺序反解 + Newton 精修，报价精确重定价）、Nelson-Siegel/Svensson、Vasicek/CIR/Hull-White（解析债券价格，HW 精确重定价初始曲线）、债券与利率互换定价、平行 DV01 与关键利率久期。零依赖。 | 41 ✅ |
+| [kairos-rates](https://github.com/Bruce848647703/kairos-rates) · **利率与固定收益** | 自研利率库：存款/互换 bootstrap（顺序反解 + Newton 精修，报价精确重定价）、Nelson-Siegel/Svensson、Vasicek/CIR/Hull-White（解析债券价格，HW 精确重定价初始曲线）、债券与利率互换定价、平行 DV01 与关键利率久期。零依赖。 | 42 ✅ |
 
 ### 策略 · Strategies
 
@@ -46,7 +48,7 @@
 
 | 项目 | 说明 | 测试 |
 |---|---|---|
-| [kairos-microstructure](https://github.com/Bruce848647703/kairos-microstructure) · **订单簿与最优执行** | 自研微观结构库：限价订单簿（FIFO 队列/穿越撮合/排队位置）、平方根与 Kyle 冲击、Almgren-Chriss 闭式最优执行与有效前沿、真实日线校准（OHLC 波动/价差估计）、执行短缺与微观指标。零依赖。 | 39 ✅ |
+| [kairos-microstructure](https://github.com/Bruce848647703/kairos-microstructure) · **订单簿与最优执行** | 自研微观结构库：限价订单簿（FIFO 队列/穿越撮合/排队位置）、平方根与 Kyle 冲击、Almgren-Chriss 闭式最优执行与有效前沿、真实日线校准（OHLC 波动/价差估计）、执行短缺与微观指标。零依赖。 | 42 ✅ |
 
 ### 市场应用 · Markets
 
@@ -58,7 +60,7 @@
 
 | 项目 | 说明 | 测试 |
 |---|---|---|
-| [kairos-terminal](https://github.com/Bruce848647703/kairos-terminal) · **随机过程交易终端** | QMT 式终端，但每个品种的价格过程可插拔（GBM/Heston/SABR/粗糙Bergomi/GARCH/跳跃/区制/VG/历史重采样/自定义）；零依赖 Web 界面（K线·下单·持仓·期权 Delta 对冲），内置定价实验室（BS/二叉树/MC/隐含波动率/模型错配对冲实验）。 | 128 ✅ |
+| [kairos-terminal](https://github.com/Bruce848647703/kairos-terminal) · **随机过程交易终端** | QMT 式终端，但每个品种的价格过程可插拔（GBM/Heston/SABR/粗糙Bergomi/GARCH/跳跃/区制/VG/历史重采样/自定义）；零依赖 Web 界面（K线·下单·持仓·期权 Delta 对冲），内置定价实验室（BS/二叉树/MC/隐含波动率/模型错配对冲实验）。 | 131 ✅ |
 
 ### 端到端集成 · Lab
 
@@ -125,16 +127,28 @@ flowchart LR
 - **数据完整性教训**：腾讯前复权(qfq)对高分红股产生**负价/假收益**（单日 >2000%），已全链切换**后复权(hfq)** 并重生成所有真实结果（等权基准收益由虚高 +1170% 修正为真实 +145%）。
 - **模型风险可量化**：在 kairos-terminal 里用 Heston 生成真实路径、却用 BS Delta 对冲一年，PnL 均值 **-1.31**、5% 分位 **-6.92**（GBM 自身为 -0.01 / -1.62）—— 定价模型错了，代价会直接落在权益曲线上。
 
-详见 [kairos-research](https://github.com/Bruce848647703/kairos-research)（11 篇结论笔记 + 126 条可溯源发现）。
+详见 [kairos-research](https://github.com/Bruce848647703/kairos-research)（12 篇结论笔记 + 147 条可溯源发现）。
 
 ## 复现
 ```bash
-# 任一仓库：
+# 任一仓库（以 kairos-strategies 为例）：
 git clone https://github.com/Bruce848647703/kairos-strategies && cd kairos-strategies
-pip install -e '.[dev,plot]'
+pip install -e ".[dev]"             # 需要画图时再加 [plot]
 python -m pytest -q                 # 跑测试
-python examples/run_all.py          # 合成数据回测(离线)
-python examples/run_real.py         # 真实A股回测(首次联网抓取hfq数据)
+make demo                           # 各仓库 Makefile 都提供 demo 目标
+```
+
+各仓库入口略有不同：
+- `kairos-strategies`：`python examples/run_all.py`（合成数据）、`python examples/run_real.py`（真实 A 股，首次联网）。
+- `kairos-lab`：`make demo`（equity / multi-asset / execution 三条端到端流水线）。
+- 带 CLI 的 5 个包（clean / terminal / vol / rates / microstructure）：`python -m kairos_xxx --help` 可直接查看子命令。
+
+## 维护
+```bash
+cd kairos
+make versions      # 列出各仓库版本
+make check         # 版本一致性检查 + 全量测试
+make lint          # ruff F/E9 静态检查
 ```
 
 ## 设计与合规
